@@ -35,6 +35,14 @@ Route::get("/", function()  {
     return view("welcome");
 });
 
+Route::get("/blog", function()  {
+    return view("blog.home");
+});
+
+Route::get("/blog/post", function()  {
+    return view("blog.post");
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
