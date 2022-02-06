@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        if ($_SERVER['argv'][1] != 'tenants:migrate') {
+            $this->call(MasterSeeder::class);
+        } else {
+            $this->call(UserSeeder::class);
+        }
     }
 }
