@@ -16,7 +16,8 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('css/admin.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -407,7 +408,8 @@
 </div>
 
 <!-- Custom scripts for all pages-->
-<script src="{{ asset('js/admin.js') }}"></script>
+<script src="{{ asset('admin_js/admin.js') }}"></script>
+<link href="{{ asset('admin_js/app.js') }}" rel="stylesheet">
 
 </body>
 
