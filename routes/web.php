@@ -1,6 +1,6 @@
 <?php
 
-use App\Tenant;
+//use App\Tenant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +25,16 @@ use Illuminate\Support\Facades\Route;
 //        dd($tenant);
 //    });
 //});
+//
+//Route::get("/{tenant}", function ($tenant) {
+//    Tenant::whereDomain($tenant)->firstOrFail()->config()->set();
+//    dd(\App\User::all());
+//});
 
-Route::get("/{tenant}", function ($tenant) {
-    Tenant::whereDomain($tenant)->firstOrFail()->config()->set();
-    dd(\App\User::all());
+Route::get("/", function()  {
+    return view("welcome");
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
