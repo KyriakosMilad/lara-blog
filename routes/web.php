@@ -14,19 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::domain(env("APP_URL") . ":8000")->group(function () {
-//    Route::get("/", function()  {
-//        dd("teeeeest");
-//    });
-//});
-//
-//Route::domain("{tenant}" . ":8000")->group(function () {
-//    Route::get("test", function ($tenant) {
-//        dd($tenant);
-//    });
-//});
-
-Route::get("/{tenant}", function ($tenant) {
-    Tenant::whereDomain($tenant)->firstOrFail()->config()->set();
-    dd(\App\User::all());
+Route::get("/", function () {
+    return view("welcome");
 });
