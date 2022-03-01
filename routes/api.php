@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +23,12 @@ Route::post('/login', 'login@AuthController');
 
 // reading posts
 Route::get('/posts', 'index@PostController');
-Route::get('/posts/{id}', 'show@PostController');
+Route::get('/posts/{post}', 'show@PostController');
 
 Route::middleware(['apiauth', 'admin'])->group(function () {
     // control posts
     Route::post('/posts', 'store@PostController');
-    Route::put('/posts/{id}', 'update@PostController');
-    Route::delete('/posts/{id}', 'destory@PostController');
+    Route::put('/posts/{post}', 'update@PostController');
+    Route::delete('/posts/{post}', 'destory@PostController');
 });
 
