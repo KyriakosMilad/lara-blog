@@ -65,12 +65,12 @@ class PostController extends Controller
             "body" => "required",
         ])->validate();
 
-        $post::update([
+        $post->update([
             "title" => $request["title"],
             "body" => $request["body"],
         ]);
 
-        return response()->json(["message" => "Post updates successfully"], 200);
+        return response()->json(["message" => "Post updates successfully"]);
     }
 
     /**
@@ -82,6 +82,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->forceDelete();
-        return response()->json(["message" => "Post deleted successfully"], 200);
+        return response()->json(["message" => "Post deleted successfully"]);
     }
 }
