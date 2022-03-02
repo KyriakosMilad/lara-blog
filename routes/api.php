@@ -18,27 +18,27 @@ Route::get('/', function () {
 });
 
 // auth
-Route::post('/register', 'register@AuthController');
-Route::post('/login', 'login@AuthController');
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
 
 // read posts
-Route::get('/posts', 'index@PostController');
-Route::get('/posts/{post}', 'show@PostController');
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show');
 
 // read post comments
-Route::get('/posts/{post}/comments', 'index@CommentController');
+Route::get('/posts/{post}/comments', 'CommentController@index');
 
 Route::middleware(['apiauth'])->group(function () {
-    Route::post('/posts/{post}/comments', 'store@CommentController');
-    Route::put('/posts/{post}/comments/{comment}', 'update@CommentController');
-    Route::delete('/posts/{post}/comments/{comment}', 'destory@CommentController');
+    Route::post('/posts/{post}/comments', 'CommentController@store');
+    Route::put('/posts/{post}/comments/{comment}', 'CommentController@update');
+    Route::delete('/posts/{post}/comments/{comment}', 'CommentController@destory');
 
     // admin routes
     Route::middleware(['admin'])->group(function () {
         // posts
-        Route::post('/posts', 'store@PostController');
-        Route::put('/posts/{post}', 'update@PostController');
-        Route::delete('/posts/{post}', 'destory@PostController');
+        Route::post('/posts', 'PostController@store');
+        Route::put('/posts/{post}', 'PostController@update');
+        Route::delete('/posts/{post}', 'PostController@destory');
     });
 });
 
