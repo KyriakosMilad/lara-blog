@@ -21,14 +21,24 @@ Route::get('/', function () {
 Route::post('/register', 'register@AuthController');
 Route::post('/login', 'login@AuthController');
 
-// reading posts
+// read posts
 Route::get('/posts', 'index@PostController');
 Route::get('/posts/{post}', 'show@PostController');
 
-Route::middleware(['apiauth', 'admin'])->group(function () {
-    // control posts
-    Route::post('/posts', 'store@PostController');
-    Route::put('/posts/{post}', 'update@PostController');
-    Route::delete('/posts/{post}', 'destory@PostController');
+// read post comments
+Route::get('/posts/{post}/comments', 'index@CommentController');
+
+Route::middleware(['apiauth'])->group(function () {
+    Route::post('/posts/{post}/comments', 'store@CommentController');
+    Route::put('/posts/{post}/comments/{comment}', 'update@CommentController');
+    Route::delete('/posts/{post}/comments/{comment}', 'destory@CommentController');
+
+    // admin routes
+    Route::middleware(['admin'])->group(function () {
+        // posts
+        Route::post('/posts', 'store@PostController');
+        Route::put('/posts/{post}', 'update@PostController');
+        Route::delete('/posts/{post}', 'destory@PostController');
+    });
 });
 
