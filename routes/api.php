@@ -34,13 +34,13 @@ Route::post('/comments/{comment}/replies', 'ReplyController@index');
 Route::middleware(['apiauth'])->group(function () {
     // add, edit, delete comment
     Route::post('/posts/{post}/comments', 'CommentController@store');
-    Route::put('/posts/{post}/comments/{comment}', 'CommentController@update');
-    Route::delete('/posts/{post}/comments/{comment}', 'CommentController@destory');
+    Route::put('/comments/{comment}', 'CommentController@update');
+    Route::delete('/comments/{comment}', 'CommentController@destory');
 
     // add, edit, delete reply
     Route::post('/comments/{comment}/replies', 'ReplyController@store');
-    Route::put('/comments/{comment}/replies/{reply}', 'ReplyController@update');
-    Route::delete('/comments/{comment}/replies/{reply}', 'ReplyController@destory');
+    Route::put('/replies/{reply}', 'ReplyController@update');
+    Route::delete('/replies/{reply}', 'ReplyController@destory');
 
     // admin routes
     Route::middleware(['admin'])->group(function () {

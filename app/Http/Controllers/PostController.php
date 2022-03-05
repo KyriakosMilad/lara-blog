@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,7 +11,7 @@ class PostController extends Controller
     /**
      * Display a listing of posts.
      *
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -23,7 +22,7 @@ class PostController extends Controller
      * Get specified post from database.
      *
      * @param \App\Post $post
-     * @return Post
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Post $post)
     {
@@ -34,7 +33,7 @@ class PostController extends Controller
      * Store a newly created post in database.
      *
      * @param \Illuminate\Http\Request $request
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -56,7 +55,7 @@ class PostController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Post $post
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Post $post)
     {
@@ -77,7 +76,7 @@ class PostController extends Controller
      * Remove specified post from database.
      *
      * @param \App\Post $post
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Post $post)
     {

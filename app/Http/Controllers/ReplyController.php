@@ -12,6 +12,7 @@ class ReplyController extends Controller
     /**
      * Display a listing of replies.
      *
+     * @param \App\Comment $comment
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Comment $comment)
@@ -45,10 +46,10 @@ class ReplyController extends Controller
      * Update specified reply in database.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Comment $reply
+     * @param \App\Reply $reply
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Comment $reply)
+    public function update(Request $request, Reply $reply)
     {
         Validator::make($request->all(), [
             "body" => "required",

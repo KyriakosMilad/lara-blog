@@ -12,6 +12,7 @@ class CommentController extends Controller
     /**
      * Display a listing of comments.
      *
+     * @param \App\Post $post
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Post $post)
