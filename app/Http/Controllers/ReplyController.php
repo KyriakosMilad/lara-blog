@@ -59,7 +59,7 @@ class ReplyController extends Controller
             "body" => $request["body"],
         ]);
 
-        return response()->json(["message" => "Reply updates successfully"]);
+        return response()->json(["message" => "Reply updated successfully"]);
     }
 
     /**

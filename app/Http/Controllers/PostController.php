@@ -69,7 +69,7 @@ class PostController extends Controller
             "body" => $request["body"],
         ]);
 
-        return response()->json(["message" => "Post updates successfully"]);
+        return response()->json(["message" => "Post updated successfully"]);
     }
 
     /**

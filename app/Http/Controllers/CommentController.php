@@ -59,7 +59,7 @@ class CommentController extends Controller
             "body" => $request["body"],
         ]);
 
-        return response()->json(["message" => "Comment updates successfully"]);
+        return response()->json(["message" => "Comment updated successfully"]);
     }
 
     /**
